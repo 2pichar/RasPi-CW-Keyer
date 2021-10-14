@@ -1,2 +1,2 @@
-# RasPi-CW-Keyer
+# Rasberry Pi CW Keyer
 An easy to use CW keyer for the Raspberry Pi
