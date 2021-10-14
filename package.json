@@ -1,0 +1,26 @@
+{
+  "name": "raspi-cw-keyer",
+  "version": "1.0.0",
+  "description": "An easy-to-use CW keyer for the Raspberry Pi.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2pichar/RasPi-CW-Keyer.git"
+  },
+  "keywords": [
+    "ham-radio",
+    "amateur-radio",
+    "nodejs",
+    "morse-code",
+    "raspberry-pi"
+  ],
+  "author": "2pichar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2pichar/RasPi-CW-Keyer/issues"
+  },
+  "homepage": "https://github.com/2pichar/RasPi-CW-Keyer#readme"
+}
