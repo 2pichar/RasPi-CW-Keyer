@@ -24,5 +24,7 @@
   },
   "homepage": "https://github.com/2pichar/RasPi-CW-Keyer#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node":"^16.11.1"
+  }
 }
