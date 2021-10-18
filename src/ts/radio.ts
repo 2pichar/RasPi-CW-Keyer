@@ -1,0 +1,1 @@
+export default ''; // Starting export to mark as module
