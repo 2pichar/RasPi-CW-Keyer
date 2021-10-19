@@ -1,0 +1,5 @@
+tasks:
+  - init: npm install
+  - env: {
+    NODE_PATH: /workspace/RasPi-CW-Keyer/src/js
+  }
