@@ -1,5 +1,8 @@
 {
   "terminal.integrated.env.linux": {
-    "NODE_PATH": "/workspace/Raspi-CW-Keyer/src/js:/workspace/Raspi-CW-Keyer/src/ts"
+    "NODE_PATH": "src/js:src/ts"
+  },
+  "terminal.integrated.env.osx": {
+    "NODE_PATH": "src/js:src/ts"
   }
 }
