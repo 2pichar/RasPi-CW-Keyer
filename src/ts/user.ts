@@ -1,10 +1,8 @@
 import * as readline from 'readline';
-import * as events from 'events'; // Get events?
-import {Readable} from 'stream';
+import {Duplex} from 'stream';
 const rl: readline.Interface = readline.createInterface({
   input: process.stdin,
-  output: process.stdout,
-  prompt: '>'
+  output: process.stdout
 });
 rl.prompt(true);
 async function input(prompt: str): Promise<str> {
@@ -19,21 +17,21 @@ async function input(prompt: str): Promise<str> {
   });
 }
 function onInput(callback): void{
-  process.stdin.on('data', callback);
+  rl.on('line', callback);
 }
 
-class UI extends Readable {
-    private _src: any;
-    constructor(src) {
+class UI extends Duplex {
+    private _src: readline.Interface;
+    constructor(input, output) {
         super({encoding: 'utf-8'});
-        this._src = src;
-        this._src.on('data', (data)=> {
+        this._src = readline.createInterface({input, output});
+        this._src.on('line', (data) => {
           this.push(data);
           this.emit('input');
         });
     };
     _read(size){
-        this._src.read(size);
+        this._src.prompt();
     }
 }
 
