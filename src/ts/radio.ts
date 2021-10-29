@@ -1,6 +1,10 @@
 import {Duplex} from 'stream';
 
-function transmitCW(): void{}
+function transmitCW(code: str[]): void {
+    for(word of code){
+
+    }
+}
 function receiveCW(): str[]{}
 
 //Implement read, write, writev, destroy
