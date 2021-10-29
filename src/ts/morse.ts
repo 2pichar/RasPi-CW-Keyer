@@ -62,8 +62,8 @@ function toMorse(text: str): str[] {
 
 function fromMorse(code: str[]): str {
     let text = '';
-    let codes = Object.values(alphabet);
-    let letters = Object.keys(alphabet);
+    let codes = alphabet.values()
+    let letters = alphabet.keys();
     let word: string;
     let letter: str;
     for(word of code){
