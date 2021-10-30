@@ -1,4 +1,9 @@
 import {Duplex} from 'stream';
+import Speaker from 'speaker';
+
+const speaker = new Speaker({
+    
+});
 
 function transmitCW(code: str[]): void {
     for(word of code){
