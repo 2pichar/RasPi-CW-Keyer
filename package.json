@@ -23,10 +23,8 @@
     "url": "https://github.com/2pichar/RasPi-CW-Keyer/issues"
   },
   "homepage": "https://github.com/2pichar/RasPi-CW-Keyer#readme",
-  "dependencies": {
-    "node-speaker": "^0.5.3"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node":"^16.11.1"
+    "@types/node": "^16.11.1"
   }
 }
