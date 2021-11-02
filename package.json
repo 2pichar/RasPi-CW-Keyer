@@ -15,7 +15,8 @@
     "amateur-radio",
     "nodejs",
     "morse-code",
-    "raspberry-pi"
+    "raspberry-pi",
+    "typescript"
   ],
   "author": "2pichar",
   "license": "ISC",
@@ -23,7 +24,9 @@
     "url": "https://github.com/2pichar/RasPi-CW-Keyer/issues"
   },
   "homepage": "https://github.com/2pichar/RasPi-CW-Keyer#readme",
-  "dependencies": {},
+  "dependencies": {
+    "speaker": "^0.5.3"
+  },
   "devDependencies": {
     "@types/node": "^16.11.1"
   }
