@@ -32,6 +32,7 @@
     "speaker": "^0.5.3"
   },
   "devDependencies": {
-    "@types/node": "^16.11.1"
+    "@types/node": "^16.11.6",
+    "typescript": "latest"
   }
 }
