@@ -5,7 +5,7 @@
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "types": ["node"],
     "module": "CommonJS",
-    "outDir": "./src/"
+    "outDir": "./src/js/"
   },
   "exclude": [
     "node_modules"
