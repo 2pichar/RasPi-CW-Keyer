@@ -43,31 +43,26 @@ var alphabet: {[char: str|int]: str} = {
     ',':'',
     '?': '. . ... ... . .',
     '.':'',
-    ' ': ''
+    ' ': '*****'
 };
-function toMorse(text: str): str[] {
-    let words: str[] = text.split(' ');
-    let coded: str = [];
-    let word: str;
-    for(word of words){
-        let code: str[] = [];
-        let letter: str;
-        for(letter of word){
-            code.push(alphabet[letter]);
-        }
-        coded.push(code.join(' '));
+function toMorse(text: str): str {
+    let coded: str = '';
+    let chars: str[] = [];
+    for(let i = 0, letter = ''; i < text.length; i++, letter = text[i]){
+        chars.push(alphabet[letter]);
     }
+    coded = chars.join('*')
     return coded;
 };
 
 function fromMorse(code: str[]): str {
     let text = '';
-    let codes = alphabet.values()
+    let codes: str[] = alphabet.values();
     let letters = alphabet.keys();
     let word: string;
     let letter: str;
     for(word of code){
-        for(letter of word){
+        for(var i = 0; i < word.length; i++, letter = word[i]){
             let ind: int = codes.indexOf(letter);
             text += letters[ind];
         }
@@ -76,7 +71,7 @@ function fromMorse(code: str[]): str {
     return text;
 };
 
-function morse(text: str): str[] {
+function morse(text: str): str {
     return toMorse(text);
 };
 
