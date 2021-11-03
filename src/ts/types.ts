@@ -22,7 +22,7 @@ Object.defineProperties(Object.prototype, {
     }
 });
 
-interface Object<K, V> {
+interface Object<K = string | number | symbol, V = unknown> {
     keys: () => K[];
     values: () => V[];
 }
