@@ -41,8 +41,10 @@ class radioInterface extends Duplex {
     constructor(){
         super({encoding: 'utf-8'});
     }
-    _read(size: int){};
-    _write(chunk: str | Buffer, encoding: str, callback: Function){
+    _read(_size: int){
+        this.push(receiveCW());
+    };
+    _write(chunk: str | Buffer, _encoding: str, callback: Function){
         let code = chunk.toString('utf-8');
         try{
             transmitCW(code);
@@ -51,7 +53,11 @@ class radioInterface extends Duplex {
             callback(err);
         }
     };
-    _writev(chunks: {chunk: str | Buffer, encoding: str}[], callback: Function){};
+    _writev(chunks: {chunk: str | Buffer, encoding: str}[], callback: Function){
+        for(let chunk of chunks){
+            this._write(chunk.chunk, chunk.encoding, callback);
+        }
+    };
     _destroy(err: Error, callback: Function){};
 };
 export default radioInterface;
