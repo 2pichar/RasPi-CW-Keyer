@@ -1,16 +1,40 @@
 import {Duplex} from 'stream';
-import Speaker from 'speaker';
 
-const speaker = new Speaker({
+const unit = 100; //length of a dot in milliseconds
+
+async function delay(timeout: int): Promise<void> {
+    /* delays for timeout milliseconds */
+    await new Promise(resolve => setTimeout(resolve, timeout));
+}
+async function transmit(length): Promise<void> {
+    /*sets headphone jack to high for length milliseconds */
     
-});
-
-function transmitCW(code: str[]): void {
-    for(word of code){
-
+}
+async function transmitCW(code: str): Promise<void> {
+    /*Iterate through code, for each letter in code, write letter to headphone jack */
+    for(let i = 0; i < code.length; i++) {
+        let letter = code[i];
+        switch(letter) {
+            case '.':
+                await transmit(unit);
+                break;
+            case '-':
+                await transmit(unit * 3);
+                break;
+            case '*':
+                break;
+        }
+        await delay(unit);
     }
 }
-function receiveCW(): str[]{}
+function* receiveCW(): Generator<string> {
+    /* reads from headphone jack, returns array of cw words */
+    while(true) {
+        // read input, parse as morse code
+        let code = '';
+        yield code;
+    }
+}
 
 //Implement read, write, writev, destroy
 class radioInterface extends Duplex {
@@ -21,7 +45,7 @@ class radioInterface extends Duplex {
     _write(chunk: str | Buffer, encoding: str, callback: Function){
         let code = chunk.toString('utf-8');
         try{
-            transmitCW([code]);
+            transmitCW(code);
             callback(null);
         } catch(err){
             callback(err);
