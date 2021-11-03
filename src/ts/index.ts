@@ -1,7 +1,7 @@
 import radioInterface from './radio' // Import radio interface module
 import * as user from './user' // Import UI module
 import * as morse from './morse' // Import morse code converter
-import * as stream from 'stream'
+import {pipeline} from 'stream'
 
 var radio = new radioInterface(); // Create radio interface
 /*radio.on('data', (data) => {
