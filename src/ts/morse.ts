@@ -76,7 +76,7 @@ function morse(text: str): str {
 };
 
 
-function to(text: str): str[] {
+function to(text: str): str {
     return toMorse(text);
 };
 function from(code: str[]): str {
