@@ -17,7 +17,8 @@ pipeline( // user input pipeline
     async function*(data){
         for await (let i of data) {
             yield morse.to(i);
-    }},
+        }
+    },
     radio,
     (err => {(err)? console.error(err): console.log('complete');})
 );
