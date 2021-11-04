@@ -4,14 +4,8 @@ import * as morse from './morse' // Import morse code converter
 import {pipeline} from 'stream'
 
 var radio = new radioInterface(); // Create radio interface
-/*radio.on('data', (data) => {
-    ui.write(morse.from(data));
-});*/
-
 var ui = new user.UI(process.stdin, process.stdout); // Create UI
-/*ui.on('data', (data) => {
-   radio.write(morse.to(data)); 
-});*/
+
 pipeline( // user input pipeline
     ui,
     async function*(data){
