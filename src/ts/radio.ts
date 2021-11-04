@@ -23,6 +23,8 @@ async function transmitCW(code: str): Promise<void> {
                 break;
             case '*':
                 break;
+            default:
+                throw new Error('Invalid character in code');
         }
         await delay(unit);
     }
