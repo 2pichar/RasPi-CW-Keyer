@@ -55,20 +55,21 @@ function toMorse(text: str): str {
     return coded;
 };
 
-function fromMorse(code: str[]): str {
-    let text = '';
+function fromMorse(code: str): str {
+    let cwords: str[] = [];
     let codes: str[] = alphabet.values();
-    let letters = alphabet.keys();
+    let chars: str[] = alphabet.keys();
+    let words: str[] = code.split('*******');
     let word: string;
     let letter: str;
-    for(word of code){
-        for(var i = 0; i < word.length; i++, letter = word[i]){
+    for(word of words){
+        let letters: str[] = word.split('*');
+        for(letter of letters){
             let ind: int = codes.indexOf(letter);
-            text += letters[ind];
+            cwords.push(chars[ind]);
         }
-        text += ' ';
     }
-    return text;
+    return cwords.join(' ');
 };
 
 function morse(text: str): str {
