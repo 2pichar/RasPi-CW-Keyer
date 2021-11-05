@@ -4,11 +4,12 @@
   "description": "An easy-to-use CW keyer for the Raspberry Pi.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && npm run build:src && npm run build:dist",
+    "test": "npm run build:tests && node tests/index.js",
+    "build": "npm run clean && npm run build:src && npm run build:dist && npm run build:tests",
     "build:src": "tsc",
     "build:dist": "tsc --outDir dist",
-    "clean": "rm -rf dist && rm -rf src/js"
+    "build:tests": "tsc --outDir tests",
+    "clean": "rm -rf dist && rm -rf src/js && rm -rf tests/*.js"
   },
   "repository": {
     "type": "git",
