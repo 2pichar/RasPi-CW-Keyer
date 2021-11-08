@@ -1,7 +1,7 @@
 /*
-Image links:
-https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/International_Morse_Code.svg/1200px-International_Morse_Code.svg.png
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNpzHvKRuq76OUPncSblOahfmVcC0vAx9XkOxC_TBg19gkkcMfIClCgKIpoUvUyxY8SQI:https://www.boxentriq.com/img/morse-code/morse-code-overview.png&usqp=CAU
+The morse code alphabet given below comes from the ITU Recommendations M.1677-1 and M.1172
+https://www.itu.int/dms_pubrec/itu-r/rec/m/R-REC-M.1677-1-200910-I!!PDF-E.pdf
+https://www.itu.int/dms_pubrec/itu-r/rec/m/R-REC-M.1172-0-199510-I!!PDF-E.pdf
 */
 var alphabet: {[char: str|int]: str} = {
     'a': '.-',
@@ -40,9 +40,9 @@ var alphabet: {[char: str|int]: str} = {
     7: '--...',
     8: '---..',
     9: '----.',
-    ',':'',
-    '?': '. . ... ... . .',
-    '.':'',
+    ',':'--..--',
+    '?': '..--..',
+    '.':'.-.-.-',
     ' ': '*****'
 };
 function toMorse(text: str): str {
