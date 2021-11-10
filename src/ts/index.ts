@@ -3,7 +3,7 @@ import * as user from './user' // Import UI module
 import * as morse from './morse' // Import morse code converter
 import {pipeline} from 'stream'
 
-var radio = new radioInterface(); // Create radio interface
+var radio = new radioInterface(20); // Create radio interface
 var ui = new user.UI(process.stdin, process.stdout); // Create UI
 
 pipeline( // user input pipeline
