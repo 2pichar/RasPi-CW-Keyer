@@ -1,5 +1,12 @@
 import {Duplex} from 'stream';
 
+const radioDefaultOpts: StreamOptions = {
+    defaultEncoding: 'utf-8',
+    decodeStrings: false,
+    emitClose: true,
+    autoDestroy: true
+};
+
 async function delay(timeout: int): Promise<void> {
     /* delays for timeout milliseconds */
     await new Promise(resolve => setTimeout(resolve, timeout));
@@ -40,8 +47,9 @@ function* receiveCW(): Generator<string> {
 //Implement read, write, writev, destroy
 class radioInterface extends Duplex {
     speed: int;
-    constructor(speed: int){
-        super({encoding: 'utf-8'});
+    constructor(speed: int, opts?: StreamOptions){
+        opts = {...radioDefaultOpts, ...opts};
+        super(opts);
         this.speed = speed;
     }
     _read(_size: int){
