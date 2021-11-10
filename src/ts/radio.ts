@@ -1,7 +1,5 @@
 import {Duplex} from 'stream';
 
-const unit = 100; //length of a dot in milliseconds
-
 async function delay(timeout: int): Promise<void> {
     /* delays for timeout milliseconds */
     await new Promise(resolve => setTimeout(resolve, timeout));
@@ -10,8 +8,9 @@ async function transmit(length): Promise<void> {
     /*sets headphone jack to high for length milliseconds */
     
 }
-async function transmitCW(code: str): Promise<void> {
-    /*Iterate through code, for each letter in code, write letter to headphone jack */
+async function transmitCW(code: str, speed: int): Promise<void> {
+    /*Iterate through code, for each letter in code, transmit letter */
+    let unit = speed/22;
     for(let i = 0; i < code.length; i++) {
         let letter = code[i];
         switch(letter) {
@@ -40,8 +39,10 @@ function* receiveCW(): Generator<string> {
 
 //Implement read, write, writev, destroy
 class radioInterface extends Duplex {
-    constructor(){
+    speed: int;
+    constructor(speed: int){
         super({encoding: 'utf-8'});
+        this.speed = speed;
     }
     _read(_size: int){
         this.push(receiveCW());
@@ -49,7 +50,7 @@ class radioInterface extends Duplex {
     _write(chunk: str | Buffer, _encoding: str, callback: Function){
         let code = chunk.toString('utf-8');
         try{
-            transmitCW(code);
+            transmitCW(code, this.speed);
             callback(null);
         } catch(err){
             callback(err);
