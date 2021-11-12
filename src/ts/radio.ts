@@ -1,3 +1,8 @@
+/**
+ * Raspberry Pi Audio Setup:
+ * `sudo modprobe snd-pcm-oss`: OSS? /dev/audio?
+ * node-speaker?
+ */
 import {Duplex} from 'stream';
 
 const radioDefaultOpts: StreamOptions = {
