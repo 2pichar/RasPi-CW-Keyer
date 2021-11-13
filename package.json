@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/2pichar/RasPi-CW-Keyer#readme",
   "dependencies": {
-    "speaker": "^0.5.3"
+    "speaker": "latest"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",
