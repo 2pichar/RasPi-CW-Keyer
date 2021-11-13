@@ -4,6 +4,15 @@
  * node-speaker?
  */
 import {Duplex} from 'stream';
+import Speaker from 'speaker';
+
+const speaker = new Speaker({
+    channels: 1,
+    bitDepth: 1,
+    sampleRate: 44100,
+    signed: false,
+    float: false
+});
 
 const radioDefaultOpts: StreamOptions = {
     defaultEncoding: 'utf-8',
