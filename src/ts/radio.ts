@@ -1,5 +1,26 @@
+/**
+ * Raspberry Pi Audio Setup:
+ * `sudo modprobe snd-pcm-oss`: OSS? /dev/audio?
+ * node-speaker?
+ */
 import {Duplex} from 'stream';
 import Mic from 'node-microphone';
+import Speaker from 'speaker';
+
+const speaker = new Speaker({
+    channels: 1,
+    bitDepth: 1,
+    sampleRate: 44100,
+    signed: false,
+    float: false
+});
+
+const radioDefaultOpts: StreamOptions = {
+    defaultEncoding: 'utf-8',
+    decodeStrings: false,
+    emitClose: true,
+    autoDestroy: true
+};
 
 async function delay(timeout: int): Promise<void> {
     /* delays for timeout milliseconds */
@@ -45,8 +66,9 @@ function* receiveCW(): Generator<string> {
 //Implement read, write, writev, destroy
 class radioInterface extends Duplex {
     speed: int;
-    constructor(speed: int){
-        super({encoding: 'utf-8'});
+    constructor(speed: int, opts?: StreamOptions){
+        opts = {...radioDefaultOpts, ...opts};
+        super(opts);
         this.speed = speed;
     }
     _read(_size: int){

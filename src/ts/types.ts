@@ -2,6 +2,9 @@ type str = string
 type int = number
 type bool = boolean
 type date = Date
+type StreamOptions = {
+    [key: str]: int | bool | str
+};
 
 Object.defineProperties(Object.prototype, {
     keys: {
