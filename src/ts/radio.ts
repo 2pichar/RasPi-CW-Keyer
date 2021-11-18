@@ -1,4 +1,5 @@
 import {Duplex} from 'stream';
+import Mic from 'node-microphone';
 
 async function delay(timeout: int): Promise<void> {
     /* delays for timeout milliseconds */
@@ -10,7 +11,8 @@ async function transmit(length): Promise<void> {
 }
 async function transmitCW(code: str, speed: int): Promise<void> {
     /*Iterate through code, for each letter in code, transmit letter */
-    let unit = speed/22;
+    let upm = speed*22;
+    let unit = (60*1000)/upm;
     for(let i = 0; i < code.length; i++) {
         let letter = code[i];
         switch(letter) {
@@ -29,12 +31,15 @@ async function transmitCW(code: str, speed: int): Promise<void> {
     }
 }
 function* receiveCW(): Generator<string> {
-    /* reads from headphone jack, returns array of cw words */
-    while(true) {
-        // read input, parse as morse code
-        let code = '';
-        yield code;
-    }
+    /* reads microphone input, returns array of cw words */
+    let mic = new Mic();
+    let micStream = mic.startRecording();
+    micStream.on('data', (data)=> {
+        console.log(data);
+        //parse PCM stream
+        
+    });
+
 }
 
 //Implement read, write, writev, destroy
