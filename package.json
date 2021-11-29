@@ -31,7 +31,8 @@
   "homepage": "https://github.com/2pichar/RasPi-CW-Keyer#readme",
   "dependencies": {
     "speaker": "^0.5.3",
-    "node-microphone": "^0.1.5"
+    "node-microphone": "^0.1.5",
+    "stream-audio-fingerprint": "^1.0.4"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",
