@@ -1,11 +1,10 @@
 {
-  "include": ["./ts/*.ts"],
+  "include": ["./*.ts"],
   "compilerOptions": {
-    "baseUrl": "./ts",
+    "baseUrl": "../src/ts",
     "typeRoots": ["../node_modules/@types"],
     "types": ["node"],
     "module": "CommonJS",
-    "outDir": "./js/"
   },
   "exclude": [
     "node_modules"

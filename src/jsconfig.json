@@ -1,0 +1,6 @@
+{
+    "compilerOptions":{
+        "baseUrl": "./js",
+        "module": "commonjs",
+    }
+}
