@@ -6,10 +6,10 @@
   "scripts": {
     "test": "npm run build:tests && node tests/index.js",
     "build": "npm run clean && npm run build:src && npm run build:dist && npm run build:tests",
-    "build:src": "tsc",
-    "build:dist": "tsc --outDir dist",
-    "build:tests": "tsc --outDir tests",
-    "clean": "rm -rf dist && rm -rf src/js && rm -rf tests/*.js"
+    "build:src": "tsc -p src/",
+    "build:dist": "tsc -p src/ --outDir dist",
+    "build:tests": "tsc -p tests/",
+    "clean": "rm -rf dist && rm -rf src/js && rm tests/*.js && rm src/ts/*.js"
   },
   "repository": {
     "type": "git",
