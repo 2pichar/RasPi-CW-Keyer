@@ -33,6 +33,9 @@ class UI extends Duplex {
     _read(size){
         this._src.prompt();
     }
+    _write(data, encoding, callback){
+        this._src.write(data);
+    }
 }
 
 export default UI;
