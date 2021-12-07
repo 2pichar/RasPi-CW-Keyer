@@ -6,6 +6,7 @@
 import {Duplex} from 'stream';
 import Mic from 'node-microphone';
 import Speaker from 'speaker';
+import 'types' // Import types
 
 const speaker = new Speaker({
     channels: 1,

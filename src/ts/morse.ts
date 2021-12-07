@@ -1,3 +1,4 @@
+import 'types' // Import types
 /*
 The morse code alphabet given below comes from the ITU Recommendations M.1677-1 and M.1172
 https://www.itu.int/dms_pubrec/itu-r/rec/m/R-REC-M.1677-1-200910-I!!PDF-E.pdf

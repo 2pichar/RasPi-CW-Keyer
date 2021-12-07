@@ -1,5 +1,7 @@
 import * as readline from 'readline';
 import {Duplex} from 'stream';
+import 'types' // Import types
+
 const rl: readline.Interface = readline.createInterface({
   input: process.stdin,
   output: process.stdout
